@@ -1,0 +1,8 @@
+db.createCollection("users");
+
+db.users.insertMany([
+    { name: "Alice", age: 30, status: "active" },
+    { name: "Bob", age: 25, status: "inactive" },
+    { name: "Charlie", age: 35, status: "active" },
+    { name: "David", age: 28, status: "pending" }
+]);

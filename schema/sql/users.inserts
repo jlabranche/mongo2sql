@@ -1,0 +1,4 @@
+INSERT INTO users (name, age, status) VALUES ('Alice', 30, 'active');
+INSERT INTO users (name, age, status) VALUES ('Bob', 25, 'inactive');
+INSERT INTO users (name, age, status) VALUES ('Charlie', 35, 'active');
+INSERT INTO users (name, age, status) VALUES ('David', 28, 'pending');

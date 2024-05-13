@@ -1,0 +1,25 @@
+
+Backend Engineer coding test 
+Updated: 11/17/2023 
+Overview 
+Your task is to create a MongoDB to SQL translator. Please treat the exercise as a real life project deliverable since we will grade you on all aspects. This is your time to shine and get creative so put your best foot forward! 
+Input/Output examples 
+in: db.user.find({name: 'john'}); 
+out: SELECT * FROM user WHERE name = 'john'; 
+in: db.user.find({_id: 23113},{name: 1, age: 1}); 
+out: SELECT name, age FROM user WHERE _id = 23113; 
+in: db.user.find({age: {$gte: 21}},{name: 1, _id: 1}); 
+out: SELECT name, _id FROM user WHERE age >= 21; 
+The translator should only support the following mongodb operators: 
+$or 
+$and 
+$lt 
+$lte 
+$gt 
+$gte 
+$ne 
+$in 
+Other considerations 
+● There can be any combinations of operators in a single query. 
+● The translator only needs to support db.find. It is OK to return an error for all other types of queries. ● The answer must be developed in Typescript. NPM libraries can be included, except for SQL builders. ● The evaluation criteria are the same as if you were submitting code to be reviewed by your team. ● No need to support complex data types such as Date, ObjectId, etc.
+
