@@ -1,0 +1,29 @@
+{
+  "name": "jlabranche-mongo2sql",
+  "version": "1.0.1",
+  "description": "A library to translate MongoDB queries to SQL queries",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/jlabranche-mongo2sql.git"
+  },
+  "keywords": [
+    "mongodb",
+    "sql",
+    "translator",
+    "nodejs"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "jest": "^26.0.0",
+    "ts-jest": "^26.0.0"
+  }
+}
