@@ -26,7 +26,4 @@
     "ts-jest": "^26.5.6",
     "typescript": "^4.0.0"
   },
-  "dependencies": {
-    "jlabranche-mongo2sql": "^1.0.2"
-  }
 }
