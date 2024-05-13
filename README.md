@@ -25,6 +25,7 @@ A library to translate MongoDB queries to SQL queries.
 ```sh
 npm install jlabranche-mongo2sql
 
+![npm install](images/npm_install.png)
 
 ## Usage
 
@@ -37,3 +38,6 @@ const mongoQuery = {
 
 const sqlQuery = translateToSQL(mongoQuery);
 console.log(sqlQuery);  // Outputs: "SELECT * FROM `user` WHERE `age` > 30"
+
+
+![npm test](images/npm_test.png)
