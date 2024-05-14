@@ -43,19 +43,19 @@ function processLogicalOperator(operator: string, conditions: any[]): string {
         const nestedConditions = conditions.map(subCondition => processConditions(subCondition, true)).join(` ${logic} `);
         return `(${nestedConditions})`;
     }
-    return ''; // Return empty string if logical operator array is empty
+    return '';
 }
 
 function processCondition(columnName: string, operator: string, operand: any): string {
     if (operator === '$options') throw new Error("Unsupported regex pattern");
 
     switch (operator) {
-        case '$eq': return `\`${columnName}\` = '${escapeSqlValue(String(operand))}'`;
-        case '$gt': return `\`${columnName}\` > ${operand}`;
+        case '$eq':  return `\`${columnName}\` = '${escapeSqlValue(String(operand))}'`;
+        case '$gt':  return `\`${columnName}\` > ${operand}`;
         case '$gte': return `\`${columnName}\` >= ${operand}`;
-        case '$lt': return `\`${columnName}\` < ${operand}`;
+        case '$lt':  return `\`${columnName}\` < ${operand}`;
         case '$lte': return `\`${columnName}\` <= ${operand}`;
-        case '$ne': return `\`${columnName}\` != '${escapeSqlValue(String(operand))}'`;
+        case '$ne':  return `\`${columnName}\` != '${escapeSqlValue(String(operand))}'`;
         case '$in':
             if (Array.isArray(operand)) {
                 const inList = operand.map(el => typeof el === 'string' ? `'${escapeSqlValue(el)}'` : el).join(', ');

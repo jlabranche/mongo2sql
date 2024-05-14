@@ -3,11 +3,11 @@ class SQLQuery {
     private tableName: string = '';
     private whereClauses: string[] = [];
     private joinClause: string = '';
-    private query: string = '';  // Add this line
+    private query: string = '';
 
-    constructor(query?: string) {  // Add an optional parameter to the constructor
+    constructor(query?: string) {
         if (query) {
-            this.query = query;  // Store the query string if provided
+            this.query = query;
         }
     }
 
@@ -29,7 +29,7 @@ class SQLQuery {
 
     toString(): string {
         if (this.query) {
-            return this.query;  // Return the stored query string if it exists
+            return this.query;
         }
         const select = this.selectFields.length > 0 ? this.selectFields.join(', ') : '*';
         const where = this.whereClauses.length > 0 ? ` WHERE ${this.whereClauses.join(' AND ')}` : '';

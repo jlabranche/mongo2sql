@@ -7,7 +7,7 @@ interface MongoJoin {
 
 class MongoQuery {
     collection: string;
-    filter?: any;  // Changed to optional
+    filter?: any;
     projection?: { [key: string]: number };
     join?: MongoJoin;
 
