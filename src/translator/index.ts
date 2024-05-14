@@ -4,15 +4,27 @@ import SQLQuery from '../models/SQLQuery';
 export function translateToSQL(mongoQuery: MongoQuery): SQLQuery {
     const { collection, filter, projection, join } = mongoQuery;
 
-    const selectFields = projection ? Object.keys(projection).map(field => `\`${field}\``).join(', ') : '*';
-    const tableName = `\`${collection}\``;
-    const conditions = filter ? processConditions(filter) : '';
-    const whereClause = conditions ? ` WHERE ${conditions}` : '';
+    const sqlQuery = new SQLQuery();
+    sqlQuery.setTableName(`\`${collection}\``);
 
-    const joinClause = join ? getJoinClause(join, collection) : '';
+    if (projection) {
+        const selectFields = Object.keys(projection).map(field => `\`${field}\``);
+        sqlQuery.setSelectFields(selectFields);
+    }
 
-    const query = `SELECT ${selectFields} FROM ${tableName}${joinClause}${whereClause}`.trim();
-    return new SQLQuery(query);
+    if (filter) {
+        const conditions = processConditions(filter);
+        if (conditions) {
+            sqlQuery.addWhereClause(conditions);
+        }
+    }
+
+    if (join) {
+        const joinClause = getJoinClause(join, collection);
+        sqlQuery.setJoinClause(joinClause);
+    }
+
+    return sqlQuery;
 }
 
 function getJoinClause(join: any, collection: string): string {
